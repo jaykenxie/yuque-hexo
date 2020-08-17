@@ -1,5 +1,5 @@
 {
-  "name": "yuque-hexo",
+  "name": "hexo-sync-yuque",
   "version": "1.6.5",
   "description": "A downloader for articles from yuque",
   "main": "index.js",
@@ -18,7 +18,7 @@
     "url": "git+https://github.com/x-cold/yuque-hexo.git"
   },
   "bin": {
-    "yuque-hexo": "bin/yuque-hexo.js"
+    "sync-yuque": "bin/yuque-hexo.js"
   },
   "author": "x-cold <lxstart@outlook.com>",
   "license": "MIT",

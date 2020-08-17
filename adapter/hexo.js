@@ -4,6 +4,7 @@ const ejs = require('ejs');
 const Entities = require('html-entities').AllHtmlEntities;
 const FrontMatter = require('hexo-front-matter');
 const { formatDate, formatRaw, formatTags, formatList } = require('../util');
+const saveImage = require('../lib/saveImage')
 
 const entities = new Entities();
 
@@ -55,7 +56,8 @@ module.exports = function(post) {
   const parseRet = parseMatter(post.body);
   const { body, ...data } = parseRet;
   const { title, slug: urlname, created_at } = post;
-  const raw = formatRaw(body);
+  const imgRaw = saveImage(body)
+  const raw = formatRaw(imgRaw);
   const date = data.date || formatDate(created_at);
   const tags = data.tags || [];
   const categories = data.categories || [];
