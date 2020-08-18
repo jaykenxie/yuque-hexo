@@ -20,7 +20,7 @@
   "bin": {
     "quexo": "bin/yuque-hexo.js"
   },
-  "author": "x-cold <lxstart@outlook.com>",
+  "author": "jianjunx <jaykenxie@outlook.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://https://github.com/jianjunx/quexo.git/issues"
