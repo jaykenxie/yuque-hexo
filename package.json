@@ -1,5 +1,5 @@
 {
-  "name": "hexo-sync-yuque",
+  "name": "quexo",
   "version": "1.6.5",
   "description": "A downloader for articles from yuque",
   "main": "index.js",
@@ -15,17 +15,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/x-cold/yuque-hexo.git"
+    "url": "git+https://github.com/jianjunx/quexo.git"
   },
   "bin": {
-    "sync-yuque": "bin/yuque-hexo.js"
+    "quexo": "bin/yuque-hexo.js"
   },
   "author": "x-cold <lxstart@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/x-cold/yuque-hexo/issues"
+    "url": "https://https://github.com/jianjunx/quexo.git/issues"
   },
-  "homepage": "https://github.com/x-cold/yuque-hexo#readme",
+  "homepage": "https://github.com/jianjunx/quexo#readme",
   "dependencies": {
     "@yuque/sdk": "^1.1.1",
     "chalk": "^2.4.1",
