@@ -1,28 +1,16 @@
-# yuque-hexo
+# quexo
 
 [![NPM version][npm-image]][npm-url]
-[![build status][travis-image]][travis-url]
-[![Test coverage][codecov-image]][codecov-url]
-[![David deps][david-image]][david-url]
-[![Known Vulnerabilities][snyk-image]][snyk-url]
 [![npm download][download-image]][download-url]
 
-[npm-image]: https://img.shields.io/npm/v/yuque-hexo.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/yuque-hexo
-[travis-image]: https://img.shields.io/travis/x-cold/yuque-hexo.svg?style=flat-square
-[travis-url]: https://travis-ci.org/x-cold/yuque-hexo
-[codecov-image]: https://codecov.io/gh/x-cold/yuque-hexo/branch/master/graph/badge.svg
-[codecov-url]: https://codecov.io/gh/x-cold/yuque-hexo
-[david-image]: https://img.shields.io/david/x-cold/yuque-hexo.svg?style=flat-square
-[david-url]: https://david-dm.org/x-cold/yuque-hexo
-[snyk-image]: https://snyk.io/test/npm/yuque-hexo/badge.svg?style=flat-square
-[snyk-url]: https://snyk.io/test/npm/yuque-hexo
-[download-image]: https://badgen.net/npm/dt/yuque-hexo
-[download-url]: https://npmjs.org/package/yuque-hexo
+[npm-image]: https://img.shields.io/npm/v/quexo.svg?style=flat-square
+[download-url]: https://npmjs.org/package/quexo
 
 A downloader for articles from yuque（语雀知识库同步工具）
 
 # Usage
+
+本项目 forke 自[yuque-hexo](https://github.com/x-cold/yuque-hexo) 在其基础上修改
 
 ## Premise
 
@@ -32,12 +20,12 @@ A downloader for articles from yuque（语雀知识库同步工具）
 
 ### 配置 TOKEN
 
-出于对知识库安全性的调整，使用第三方 API 访问知识库，需要传入环境变量 YUQUE_TOKEN，在语雀上点击 个人头像 -> 设置 -> Token 即可获取。传入 YUQUE_TOKEN 到 yuque-hexo 的进程有两种方式：
+出于对知识库安全性的调整，使用第三方 API 访问知识库，需要传入环境变量 YUQUE_TOKEN，在语雀上点击 个人头像 -> 设置 -> Token 即可获取。传入 YUQUE_TOKEN 到 quexo 的进程有两种方式：
 
 - 设置全局的环境变量 YUQUE_TOKEN
 - 命令执行时传入环境变量
-  - mac / linux: `YUQUE_TOKEN=xxx yuque-hexo sync`
-  - windows: `set YUQUE_TOKEN=xxx && yuque-hexo sync`
+  - mac / linux: `YUQUE_TOKEN=xxx quexo sync`
+  - windows: `set YUQUE_TOKEN=xxx && quexo sync`
 
 ### 配置知识库
 
@@ -73,42 +61,44 @@ A downloader for articles from yuque（语雀知识库同步工具）
 | repo          | 语雀仓库短名称，也称为语雀知识库路径 | -                    |
 | onlyPublished | 只展示已经发布的文章                 | false                |
 | onlyPublic    | 只展示公开文章                       | false                |
+| saveImage     | 是否将图片保存到本地                 | false                |
+| imagePath     | 保存本地图片路径                     | source/images        |
 
 > slug 是语雀的永久链接名，一般是几个随机字母。
 
 ## Install
 
 ```bash
-npm i -g yuque-hexo
+npm i -g quexo
 # or
-npm i --save-dev yuque-hexo
+npm i --save-dev quexo
 ```
 
 ## Sync
 
 ```
-yuque-hexo sync
+quexo sync
 ```
 
 ## Clean
 
 ```
-yuque-hexo clean
+quexo clean
 ```
 
 ## Npm Scripts
 
 ```json
 {
-  "sync": "yuque-hexo sync",
-  "clean:yuque": "yuque-hexo clean"
+  "sync": "quexo sync",
+  "clean:yuque": "quexo clean"
 }
 ```
 
 ## Debug
 
 ```
-DEBUG=yuque-hexo.* yuque-hexo sync
+DEBUG=quexo.* quexo sync
 ```
 
 ## Best practice
@@ -143,7 +133,7 @@ DEBUG=yuque-hexo.* yuque-hexo sync
   more detail
   ```
 
-- 如果遇到上传到语雀的图片无法加载的问题，可以参考这个处理方式 [#41](https://github.com/x-cold/yuque-hexo/issues/41)
+- 如果遇到上传到语雀的图片无法加载的问题，可以参考这个处理方式 [#41](https://github.com/x-cold/quexo/issues/41)
 
 # Example
 
@@ -151,6 +141,10 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 - yuque to github repo: [txd-team/monthly](https://github.com/txd-team/monthly/blob/master/package.json)
 
 # Changelog
+
+### v1.6.6
+
+- 🔥 添加是否保存文档图片到本地设置
 
 ### v1.6.5
 
@@ -160,7 +154,7 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 ### v1.6.4
 
-- 🐸 修复多行 <br /> 的[问题](https://github.com/x-cold/yuque-hexo/pull/59)
+- 🐸 修复多行 <br /> 的[问题](https://github.com/x-cold/quexo/pull/59)
 
 ### v1.6.3
 
@@ -169,15 +163,15 @@ DEBUG=yuque-hexo.* yuque-hexo sync
 
 ### v1.6.2
 
-- 🔥 使用 slug 自定义 [urlname](https://github.com/x-cold/yuque-hexo/pull/37)
+- 🔥 使用 slug 自定义 [urlname](https://github.com/x-cold/quexo/pull/37)
 
 ### v1.6.1
 
-- 🐸 修复 tags 格式化[问题](https://github.com/x-cold/yuque-hexo/issues/31)
+- 🐸 修复 tags 格式化[问题](https://github.com/x-cold/quexo/issues/31)
 
 ### v1.6.0
 
-- 🐸 修复 descrption 导致的 front-matter 解析错误[问题](https://github.com/x-cold/yuque-hexo/issues/27#issuecomment-490138318)
+- 🐸 修复 descrption 导致的 front-matter 解析错误[问题](https://github.com/x-cold/quexo/issues/27#issuecomment-490138318)
 - 🔥 支持私有仓库同步
 - 🔥 使用语雀官方的 SDK，支持 YUQUE_TOKEN，可以解除 API 调用次数限制
 
