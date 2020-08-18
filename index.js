@@ -6,7 +6,7 @@ const Command = require('common-bin');
 class MainCommand extends Command {
   constructor(rawArgv) {
     super(rawArgv);
-    this.usage = 'Usage: yuque-hexo <command>';
+    this.usage = 'Usage: quexo <command>';
 
     // load sub command
     this.load(path.join(__dirname, 'command'));

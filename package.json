@@ -7,11 +7,7 @@
     "clean": "rimraf coverage",
     "lint": "eslint .",
     "test": "npm run lint -- --fix && npm run test-local",
-    "test-local": "egg-bin test",
-    "cov": "egg-bin cov",
-    "ci": "npm run clean && npm run lint && egg-bin cov",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "test-local": "egg-bin test"
   },
   "repository": {
     "type": "git",
@@ -52,6 +48,5 @@
     "egg-ci": "^1.8.0",
     "eslint": "^5.4.0",
     "eslint-config-egg": "^7.1.0"
-  },
-  "snyk": true
+  }
 }
