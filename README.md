@@ -142,7 +142,7 @@ DEBUG=quexo.* quexo sync
 
 # Changelog
 
-### v1.6.6
+### v1.6.7
 
 - 🔥 添加是否保存文档图片到本地设置
 
