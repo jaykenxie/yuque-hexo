@@ -3,7 +3,9 @@
 [![NPM version][npm-image]][npm-url]
 [![npm download][download-image]][download-url]
 
-[npm-image]: https://img.shields.io/npm/v/quexo.svg?style=flat-square
+[[npm-image]: https://img.shields.io/npm/v/quexo.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/quexo
+[download-image]: https://badgen.net/npm/dt/quexo
 [download-url]: https://npmjs.org/package/quexo
 
 A downloader for articles from yuque（语雀知识库同步工具）
@@ -137,10 +139,14 @@ DEBUG=quexo.* quexo sync
 
 # Example
 
-- yuque to hexo: [x-cold/blog](https://github.com/x-cold/blog/blob/master/package.json)
-- yuque to github repo: [txd-team/monthly](https://github.com/txd-team/monthly/blob/master/package.json)
+- yuque to hexo: [jianjunx/jianjun-fun](https://github.com/jianjunx/jianjun-fun/blob/master/package.json)
 
 # Changelog
+
+### v1.6.8
+
+- 🔥 支持从文章中提取分类和标签
+- 在文档中任意位置添加格式： [: $分类, #标签1, #标签2 :]
 
 ### v1.6.7
 

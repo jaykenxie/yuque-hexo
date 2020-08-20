@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
-const ejs = require("ejs");
-const Entities = require("html-entities").AllHtmlEntities;
-const FrontMatter = require("hexo-front-matter");
-const { formatDate, formatRaw, formatTags, formatList } = require("../util");
-const saveImage = require("../lib/saveImage");
+const ejs = require('ejs');
+const Entities = require('html-entities').AllHtmlEntities;
+const FrontMatter = require('hexo-front-matter');
+const { formatDate, formatRaw, formatTags, formatList } = require('../util');
+const saveImage = require('../lib/saveImage');
 
 const entities = new Entities();
 
@@ -31,7 +31,7 @@ function parseMatter(body) {
     // front matter信息的<br/>换成 \n
     const regex = /(title:|layout:|tags:|date:|categories:){1}(\S|\s)+?---/gi;
     body = body.replace(regex, (a) =>
-      a.replace(/(<br \/>|<br>|<br\/>)/gi, "\n")
+      a.replace(/(<br \/>|<br>|<br\/>)/gi, '\n'),
     );
     const result = FrontMatter.parse(body);
     const results = getTagAndCategory(result._content);
@@ -58,12 +58,12 @@ function getTagAndCategory(body) {
   const categories = [];
   try {
     body = body.replace(/\[:(.*):\]/, (match, args) => {
-      for (const item of args.split(",")) {
+      for (const item of args.split(',')) {
         const t = item.trim();
-        if (t.startsWith("$")) categories.push(t);
-        if (t.startsWith("#")) tags.push(t);
+        if (t.startsWith('$')) categories.push(t.slice(1));
+        if (t.startsWith('#')) tags.push(t.slice(1));
       }
-      return "";
+      return '';
     });
   } catch (error) {}
   return { body, tags, categories };
@@ -86,7 +86,7 @@ module.exports = function (post) {
   const tags = data.tags || [];
   const categories = data.categories || [];
   const props = {
-    title: title.replace(/"/g, ""), // 临时去掉标题中的引号，至少保证文章页面是正常可访问的
+    title: title.replace(/"/g, ''), // 临时去掉标题中的引号，至少保证文章页面是正常可访问的
     urlname,
     date,
     ...data,
