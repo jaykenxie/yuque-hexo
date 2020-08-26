@@ -6,13 +6,13 @@
 [[npm-image]: https://img.shields.io/npm/v/quexo.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/quexo
 [download-image]: https://badgen.net/npm/dt/quexo
-[download-url]: https://npmjs.org/package/quexo
+[download-url]: https://npmjs.org/package/quexo]
 
 A downloader for articles from yuque（语雀知识库同步工具）
 
 # Usage
 
-本项目 forke 自[yuque-hexo](https://github.com/x-cold/yuque-hexo) 在其基础上修改
+感谢[yuque-hexo](https://github.com/x-cold/yuque-hexo)本项目在其基础上修改和添加功能
 
 ## Premise
 
