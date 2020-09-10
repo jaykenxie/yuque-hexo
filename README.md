@@ -1,18 +1,5 @@
 # quexo
-
-[![NPM version][npm-image]][npm-url]
-[![npm download][download-image]][download-url]
-
-[[npm-image]: https://img.shields.io/npm/v/quexo.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/quexo
-[download-image]: https://badgen.net/npm/dt/quexo
-[download-url]: https://npmjs.org/package/quexo]
-
-A downloader for articles from yuque（语雀知识库同步工具）
-
-# Usage
-
-感谢[yuque-hexo](https://github.com/x-cold/yuque-hexo)本项目在其基础上修改和添加功能
+A downloader for articles from yuque（语雀知识库同步到hexo工具）
 
 ## Premise
 
@@ -24,31 +11,31 @@ A downloader for articles from yuque（语雀知识库同步工具）
 
 出于对知识库安全性的调整，使用第三方 API 访问知识库，需要传入环境变量 YUQUE_TOKEN，在语雀上点击 个人头像 -> 设置 -> Token 即可获取。传入 YUQUE_TOKEN 到 quexo 的进程有两种方式：
 
-- 设置全局的环境变量 YUQUE_TOKEN
+- 设置全局的环境变量
 - 命令执行时传入环境变量
-  - mac / linux: `YUQUE_TOKEN=xxx quexo sync`
-  - windows: `set YUQUE_TOKEN=xxx && quexo sync`
+  - mac / linux: `YUQUE_TOKEN=xxx COS_SECRETID=xxx COS_SECRETKEY=xxx quexo sync`
+  - windows: `set YUQUE_TOKEN=xxx YUQUE_TOKEN=xxx COS_SECRETID=xxx COS_SECRETKEY=xxx && quexo sync`
 
 ### 配置知识库
 
-> package.json
+> quexo.config.js
 
-```json
-{
-  "name": "your hexo project",
-  "yuqueConfig": {
-    "postPath": "source/_posts/yuque",
-    "cachePath": "yuque.json",
-    "mdNameFormat": "title",
-    "adapter": "hexo",
-    "concurrency": 5,
-    "baseUrl": "https://www.yuque.com/api/v2",
-    "login": "yinzhi",
-    "repo": "blog",
-    "onlyPublished": false,
-    "onlyPublic": false
-  }
-}
+```javascript
+module.exports = {
+  login: "jianjunxie",
+  repo: "kb",
+  mdNameFormat: "title",
+  postPath: "source/_posts/yq",
+  imageLocalPath: "source/images/post",
+  saveImage: "cos",
+  cos: {
+    bucket: "桶名",
+    region: "地域",
+    prefix: "post/",
+    url: "桶的访url",
+  },
+};
+
 ```
 
 | 参数名        | 含义                                 | 默认值               |
@@ -63,8 +50,9 @@ A downloader for articles from yuque（语雀知识库同步工具）
 | repo          | 语雀仓库短名称，也称为语雀知识库路径 | -                    |
 | onlyPublished | 只展示已经发布的文章                 | false                |
 | onlyPublic    | 只展示公开文章                       | false                |
-| saveImage     | 是否将图片保存到本地                 | false                |
-| imagePath     | 保存本地图片路径                     | source/images        |
+| saveImage     | 是否将图片保存到指定位置              | 可选值：undefined/cos/local，默认undefined   |
+| imageLocalPath     | 保存本地图片路径                     | source/images        |
+| cos     | 保存图片到腾讯云COS                     | undefined        |
 
 > slug 是语雀的永久链接名，一般是几个随机字母。
 
@@ -210,3 +198,5 @@ DEBUG=quexo.* quexo sync
 ### v1.1.1
 
 - 支持 hexo-front-matter，可以在文章中编辑 tags / date 等属性
+
+感谢[yuque-hexo](https://github.com/x-cold/yuque-hexo)本项目在其基础上修改和添加功能
