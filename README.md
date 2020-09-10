@@ -10,7 +10,7 @@ A downloader for articles from yuque（语雀知识库同步到hexo工具）
 ### 配置 TOKEN
 处于对安全性的考虑，在使用第三方API访问知识库和COS时需要将token传入环境变量
 语雀token获取方式：在语雀上点击 个人头像 -> 设置 -> Token 即可获取。传入 YUQUE_TOKEN 到 quexo 的进程有两种方式：
-腾讯云
+腾讯云: 控制台 -> 对象存储 -> 密钥管理 -> 点击 「云 API 密钥」获取
 
 #### 设置全局的环境变量
 - 命令执行时传入环境变量
@@ -97,7 +97,6 @@ DEBUG=quexo.* quexo sync
 - [Hexo 博客终极玩法：云端写作，自动部署](https://www.yuque.com/u46795/blog/dlloc7)
 - [Hexo：语雀云端写作 Github Actions 持续集成](https://www.zhwei.cn/hexo-github-actions-yuque/)
 
-> 另外 x-cold 本人提供了一个触发 Travis CI 构建的 HTTP API 接口，详情请查看[文档](https://github.com/x-cold/aliyun-function/tree/master/travis_ci) (请勿恶意使用)
 
 # Notice
 
@@ -131,6 +130,10 @@ DEBUG=quexo.* quexo sync
 - yuque to hexo: [jianjunx/jianjun-fun](https://github.com/jianjunx/jianjun-fun/blob/master/package.json)
 
 # Changelog
+
+### v1.7.0
+
+- 🔥 增加文件上传至腾讯云
 
 ### v1.6.8
 
