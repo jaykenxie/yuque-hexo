@@ -8,8 +8,9 @@ const cwd = process.cwd();
 const token = process.env.YUQUE_TOKEN;
 const defaultConfig = {
   postPath: "source/_posts/yuque",
-  imagePath: "source/images",
-  saveImage: false,
+  imageLocalPath: "source/images",
+  saveImage: undefined, // COS, LOCAL, undefined
+  cos: undefined,
   cachePath: "yuque.json",
   mdNameFormat: "title",
   baseUrl: "https://www.yuque.com/api/v2/",
@@ -23,33 +24,27 @@ const defaultConfig = {
 };
 
 function loadConfig() {
-  const pkg = loadJson() || loadYaml();
+  const pkg = loadConfigFile();
   if (!pkg) {
     out.error("current directory should have a package.json");
     return null;
   }
-  const { yuqueConfig } = pkg;
-  if (!lodash.isObject(yuqueConfig)) {
+  if (!lodash.isObject(pkg)) {
     out.error("package.yueConfig should be an object.");
     return null;
   }
-  const config = Object.assign({}, defaultConfig, yuqueConfig);
+  const config = Object.assign({}, defaultConfig, pkg);
   return config;
 }
 
-function loadJson() {
-  const pkgPath = path.join(cwd, "package.json");
-  // out.info(`loading config: ${pkgPath}`);
+function loadConfigFile() {
+  const pkgPath = path.join(cwd, "quexo.config.js");
   try {
     const pkg = require(pkgPath);
     return pkg;
   } catch (error) {
     // do nothing
   }
-}
-
-function loadYaml() {
-  // TODO
 }
 
 module.exports = loadConfig();

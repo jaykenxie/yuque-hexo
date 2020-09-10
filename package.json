@@ -26,6 +26,7 @@
     "@yuque/sdk": "^1.1.1",
     "chalk": "^2.4.1",
     "common-bin": "^2.7.3",
+    "cos-nodejs-sdk-v5": "^2.7.0",
     "debug": "^3.1.0",
     "depd": "^2.0.0",
     "ejs": "^2.6.1",
@@ -38,9 +39,9 @@
     "prettier": "^2.0.4",
     "queue": "^4.5.0",
     "rimraf": "^2.6.2",
+    "snyk": "^1.316.1",
     "update-check": "^1.5.3",
-    "urllib": "^2.29.1",
-    "snyk": "^1.316.1"
+    "urllib": "^2.29.1"
   },
   "devDependencies": {
     "coffee": "^5.1.0",
