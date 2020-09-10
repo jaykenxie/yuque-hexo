@@ -9,7 +9,7 @@ const token = process.env.YUQUE_TOKEN;
 const defaultConfig = {
   postPath: "source/_posts/yuque",
   imageLocalPath: "source/images",
-  saveImage: undefined, // COS, LOCAL, undefined
+  saveImage: undefined, // cos, local, undefined
   cos: undefined,
   cachePath: "yuque.json",
   mdNameFormat: "title",
