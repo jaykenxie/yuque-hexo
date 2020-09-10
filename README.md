@@ -8,10 +8,11 @@ A downloader for articles from yuque（语雀知识库同步到hexo工具）
 ## Config
 
 ### 配置 TOKEN
+处于对安全性的考虑，在使用第三方API访问知识库和COS时需要将token传入环境变量
+语雀token获取方式：在语雀上点击 个人头像 -> 设置 -> Token 即可获取。传入 YUQUE_TOKEN 到 quexo 的进程有两种方式：
+腾讯云
 
-出于对知识库安全性的调整，使用第三方 API 访问知识库，需要传入环境变量 YUQUE_TOKEN，在语雀上点击 个人头像 -> 设置 -> Token 即可获取。传入 YUQUE_TOKEN 到 quexo 的进程有两种方式：
-
-- 设置全局的环境变量
+#### 设置全局的环境变量
 - 命令执行时传入环境变量
   - mac / linux: `YUQUE_TOKEN=xxx COS_SECRETID=xxx COS_SECRETKEY=xxx quexo sync`
   - windows: `set YUQUE_TOKEN=xxx YUQUE_TOKEN=xxx COS_SECRETID=xxx COS_SECRETKEY=xxx && quexo sync`
